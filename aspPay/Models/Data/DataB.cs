@@ -10,5 +10,6 @@ namespace aspPay.Models.Data
     {
         //access Table through entity framework
         public DbSet<PageDtO>  pages { get; set; }
+        public DbSet<SideBarDtO> sidebar { get; set; }
     }
 }

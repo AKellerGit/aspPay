@@ -246,8 +246,40 @@ namespace aspPay.Areas.Admin.Controllers
 
             }
         }
+
+        //GET: Admin/Pages/EditSideBar
+        [HttpGet]
+        public ActionResult EditSideBar()
+        {
+            SideBarViewModel model;
+
+            using (DataB db = new DataB())
+            {
+                SideBarDtO dto = db.sidebar.Find(1);
+
+                model = new SideBarViewModel(dto);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult EditSideBar(SideBarViewModel model)
+        {
+            using (DataB db = new DataB())
+            {
+                SideBarDtO dto = db.sidebar.Find(1);
+
+                dto.Body = model.Body;
+
+                db.SaveChanges();
+            }
+
+            TempData["SM"] = "You made a successful edit to the sidebar!!!";
+
+            return RedirectToAction("EditSidebar");
+
+        }
+
     }
-
-
 
 }

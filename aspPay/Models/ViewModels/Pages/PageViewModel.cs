@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using aspPay.Models.Data;
 
 
@@ -38,6 +39,8 @@ namespace aspPay.Models.ViewModels.Pages
         //notifies on /Admin/Pages/AddPage if the body Field is empty
         [Required]
         [StringLength(int.MaxValue, MinimumLength = 3)]
+
+        [AllowHtml]
         public string Body { get; set; }
         public int Sort { get; set; }
         public bool HasSideBar { get; set; }

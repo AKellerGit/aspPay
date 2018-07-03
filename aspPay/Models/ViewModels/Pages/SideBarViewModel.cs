@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using aspPay.Models.Data;
+using System.Web.Mvc;
 
 namespace aspPay.Models.ViewModels.Pages
 {
@@ -19,6 +20,7 @@ namespace aspPay.Models.ViewModels.Pages
             Body = row.Body;
         }
         public int Id { get; set; }
+        [AllowHtml]
         public string Body { get; set; }
     }
 }
